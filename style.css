@@ -1,3 +1,39 @@
+.header{
+    padding-top:1em;
+}
+.search-area{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.search{
+    display:none;
+}
+.search-area i{
+    font-size:18px;
+    margin-right:10px;
+    height:30px;
+    line-height:30px;
+    padding:3px;
+    cursor: pointer;
+}
+.search-area i:hover{
+    /* background-color:pointer */
+}
+.search-area > div.active{
+    display:block;
+}
+.search-area input::placeholder{
+    font-size:13px;
+}
+.search-area button{
+    font-size:13px;
+    height:30px;
+    border:1px solid rgba(0,0,0,0.2)
+}
+.search-area{
+    text-align:center;
+}
 .head-line{
     margin-top:1em;
     display:flex;
@@ -31,4 +67,167 @@
 .news{
     border-bottom: 2px solid black;
     padding:1em;
+}
+.hambergerBox{
+    width: 50px;
+    height: 40px;
+    border: 1px solid black;
+    position: relative;
+    display: block;
+    padding: 9px 11px;
+    cursor: pointer;
+    display: none
+}
+.hambergerBox > div{
+    width:20px;
+    height:1px;
+    border-radius: 10px;
+    background:black;
+    transition: all 0.2s;
+}
+.hambergerBox > .icon1{
+    margin-bottom:6px;
+}
+.hambergerBox > .icon2{
+    margin-left:-3px;
+    margin-bottom:6px;
+}
+.hambergerBox > .icon3{
+    margin-left:3px;
+}
+/* .hambergerBox:hover > .icon2{
+    margin-left:3px;
+}
+.hambergerBox:hover > .icon3{
+    margin-left:-3px;
+} */
+.menuBar{
+    display:none;
+    width:500px;
+    height:100%;
+    position:absolute;
+    top:0;
+    right:0;
+    z-index:100;
+    overflow:hidden;
+}
+.menuBar-wrap{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+.rotBox{
+    width:100px;
+    height:100px;
+    background:#00a0e3;
+    position:absolute;
+    top:45%;
+    transform:translateY(-45%);
+    right:50px;
+    animation:rotate 4s linear infinite;
+}
+.reqBtn{
+    width:100px;
+    height:100px;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    right:50px;
+    text-align:center;
+    animation:updown 1.5s linear infinite;
+}
+.reqBtn span{
+    display:block;
+    color:white;
+    font-size:20px;
+    line-height:100px;
+}
+.menu{
+    width:500px;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    position:fixed;
+}
+.menu .closeBtn{
+    width:30px;
+    height:30px;
+    position:absolute;
+    top:20px;
+    left:20px;
+    cursor:pointer;
+}
+.menu .closeBtn > div{
+    width:27px;
+    height:3px;
+    border-radius: 10px;
+    background:white;
+    transition:all 0.2s;
+    position:absolute;
+    top:50%;
+    transform:translate(-50%);
+}
+.menu .closeBtn .iconBtn{
+    transform:rotate(45deg);
+}
+.menu .closeBtn .iconBtn2{
+    transform:rotate(-45deg);
+}
+.menu ul{
+    height:100%;
+    padding-left:50px;
+    padding-top:100px;
+    padding-bottom:100px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color:white;
+    list-style: none;
+}
+ .menu ul li{
+    font-size:22px;
+}
+.menu ul li a{
+    position:relative;
+    text-decoration:none;
+}
+.menu ul li a:before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    max-width: 0;
+    border-bottom: 2px solid #00a0e3;
+    color: #00a0e3;
+    content: attr(data-hover);
+    -webkit-transition: max-width 0.5s;
+    -moz-transition: max-width 0.5s;
+    transition: max-width 0.5s;
+    z-index:100;
+}
+.menu ul li a:hover:before, .menu ul li a:focus:before{
+    max-width:100%;
+}
+
+@media all and (max-width:499px){
+    .head-line{
+        /* justify-content: start; */
+    }
+    .head-line svg{
+        max-width:250px;
+    }
+    .menus{
+        display:none;
+    }
+    
+    .hambergerBox{
+        display:block;
+        position:absolute;
+        top:16px;
+        right:1em;
+        width:40px;
+        height:30px;
+        padding:0;
+        padding-left:9px;
+        padding-top:6.5px;
+    }
 }

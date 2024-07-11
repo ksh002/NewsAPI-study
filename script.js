@@ -1,9 +1,13 @@
-// const API_KEY = `8980b41bdcef4ff398c6d2d44ed8d165`
+const API_KEY = `8980b41bdcef4ff398c6d2d44ed8d165`
 let newsList = [];
 // let filter = 'all';
 
 const getLatestNews = async () => {
-    const url = new URL(`https://newsapi-study.netlify.app/top-headlines?`);
+    const url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?`);
+
+    // 학습용
+    // const url = new URL(`https://newsapi.org/v2/top-headlines?country=us&apiKey=8980b41bdcef4ff398c6d2d44ed8d165`)
+
     const response = await fetch(url)
     const data = await response.json()
     newsList = data.articles;
@@ -69,3 +73,15 @@ getLatestNews();
 
 // const time = moment().format('MMMM Do YYYY, h:mm:ss a');
 // console.log(time)
+
+document.querySelector(".hambergerBox").addEventListener("click", function() {
+    document.querySelector(".menuBar").style.display = "block";
+});
+
+document.querySelector(".closeBtn").addEventListener("click", function() {
+    document.querySelector(".menuBar").style.display = "none";
+});
+
+document.querySelector(".fa-magnifying-glass").addEventListener('click', function() {
+    document.querySelector(".search").classList.toggle("active")
+});
