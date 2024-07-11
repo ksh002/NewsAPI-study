@@ -1,6 +1,13 @@
 .header{
     padding-top:1em;
 }
+.error-area{
+    color:rgb(113, 82, 82);
+    text-align: center;
+    font-size:24px;
+    padding:10px 0;
+    background-color:rgb(229, 202, 202);
+}
 .search-area{
     display:flex;
     align-items: center;

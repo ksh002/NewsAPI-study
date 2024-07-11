@@ -10,13 +10,29 @@ let url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlin
 
 
 const getNews = async () => {
-    const response = await fetch(url)
-    const data = await response.json()
-    newsList = data.articles;
-    render()
+    try {
+        const response = await fetch(url)
+        const data = await response.json()
+        if (response.status === 200) {
+            if(data.articles.length === 0) {
+                throw new Error("No result for this search");
+            }
+            newsList = data.articles;
+            render()
+        } else {
+            throw new Error(data.message)
+        }
+        
+
+        
+
+    } catch (error) {
+        errorHandle(error.message)
+    }
+    
 }
 
-const saerch = async () => {
+const searchNews = async () => {
     const textContent = inputArea.value;
     // url = new URL(
     //     `https://newsapi.org/v2/top-headlines?country=kr&q=${textContent}&apiKey=${API_KEY}`
@@ -25,17 +41,24 @@ const saerch = async () => {
         `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?q=${textContent}`
     )
 
-    getNews()
-    console.log(textContent)
+    await getNews() 
 }
-searchBtn.addEventListener('click', saerch)
+searchBtn.addEventListener('click', searchNews)
 
 
 const getLatestNews = async () => {
     
-
     getNews()
 
+}
+
+const errorHandle = (errorMessage) => {
+    const errorHTML = `
+        <div class="error-area">
+            <span>${errorMessage}.</span>
+        </div>
+    `
+    document.getElementById('news-board').innerHTML = errorHTML;
 }
 
 const render = (newsData = newsList) => {
@@ -76,7 +99,9 @@ const render = (newsData = newsList) => {
             </div>
         </div>`;
     }).join('');
-    console.log(newsHTML);
+    // console.log(newsHTML.length)
+    // console.log(newsHTML);
+    
 
     document.getElementById('news-board').innerHTML = newsHTML;
 };
@@ -92,7 +117,7 @@ const render = (newsData = newsList) => {
 // }
 const btnEvent = async (event) => {
     const category = event.target.textContent.toLowerCase()
-    console.log(category)
+    // console.log(category)
     url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?category=${category}`);
 
     getNews()
