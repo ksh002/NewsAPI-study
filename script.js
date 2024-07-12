@@ -8,8 +8,8 @@ const pageSize = 10;
 const groupSize = 5;
 
 // 기본 URL 설정
-let url = new URL(`https://newsapi.org/v2/top-headlines?country=kr&apiKey=${API_KEY}`);
-// let url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?`); 
+// let url = new URL(`https://newsapi.org/v2/top-headlines?country=kr&apiKey=${API_KEY}`);
+let url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?`); 
 
 // API에서 뉴스를 가져오는 함수
 const getNews = async () => {
@@ -38,8 +38,8 @@ const getNews = async () => {
 // 뉴스를 검색하는 함수
 const searchNews = async () => {
     const textContent = inputArea.value;
-    // url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?q=${textContent}`);
-    url = new URL(`https://newsapi.org/v2/top-headlines?country=kr&q=${textContent}&apiKey=${API_KEY}`);
+    url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?q=${textContent}`);
+    // url = new URL(`https://newsapi.org/v2/top-headlines?country=kr&q=${textContent}&apiKey=${API_KEY}`);
     await getNews();
 };
 
@@ -87,16 +87,16 @@ const render = (newsData = newsList) => {
 // 버튼 이벤트를 처리하는 함수
 const btnEvent = async (event) => {
     const category = event.target.textContent.toLowerCase();
-    // url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?category=${category}`);
-    url = new URL(`https://newsapi.org/v2/top-headlines?country=kr&category=${category}&apiKey=${API_KEY}`);
+    url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?category=${category}`);
+    // url = new URL(`https://newsapi.org/v2/top-headlines?country=kr&category=${category}&apiKey=${API_KEY}`);
     await getNews();
 };
 
 // 모바일 버튼 이벤트를 처리하는 함수
 const mobileBtnEvent = async (event) => {
     const category = event.target.textContent.toLowerCase();
-    // url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?category=${category}`);
-    url = new URL(`https://newsapi.org/v2/top-headlines?country=kr&category=${category}&apiKey=${API_KEY}`);
+    url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?category=${category}`);
+    // url = new URL(`https://newsapi.org/v2/top-headlines?country=kr&category=${category}&apiKey=${API_KEY}`);
     await getNews();
 };
 
