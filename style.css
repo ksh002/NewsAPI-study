@@ -1,6 +1,14 @@
 .header{
     padding-top:1em;
 }
+.pagination{
+    margin-top:1em;
+    justify-content: center;
+}
+.pagination li.disabled{
+    display:none;
+}
+
 .error-area{
     color:rgb(113, 82, 82);
     text-align: center;
@@ -110,7 +118,8 @@
 } */
 .menuBar{
     display:none;
-    width:500px;
+    max-width:500px;
+    width:100%;
     height:100%;
     position:absolute;
     top:0;
