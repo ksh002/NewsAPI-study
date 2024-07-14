@@ -9,7 +9,7 @@ const groupSize = 5;
 
 // 기본 URL 설정
 // let url = new URL(`https://newsapi.org/v2/top-headlines?country=kr&apiKey=${API_KEY}`);
-let url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?`); 
+let url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?`);
 
 // API에서 뉴스를 가져오는 함수
 const getNews = async () => {
@@ -40,6 +40,7 @@ const searchNews = async () => {
     const textContent = inputArea.value;
     url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?q=${textContent}`);
     // url = new URL(`https://newsapi.org/v2/top-headlines?country=kr&q=${textContent}&apiKey=${API_KEY}`);
+    page = 1; // 페이지 번호 초기화
     await getNews();
 };
 
@@ -89,6 +90,7 @@ const btnEvent = async (event) => {
     const category = event.target.textContent.toLowerCase();
     url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?category=${category}`);
     // url = new URL(`https://newsapi.org/v2/top-headlines?country=kr&category=${category}&apiKey=${API_KEY}`);
+    page = 1; // 페이지 번호 초기화
     await getNews();
 };
 
@@ -97,6 +99,7 @@ const mobileBtnEvent = async (event) => {
     const category = event.target.textContent.toLowerCase();
     url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?category=${category}`);
     // url = new URL(`https://newsapi.org/v2/top-headlines?country=kr&category=${category}&apiKey=${API_KEY}`);
+    page = 1; // 페이지 번호 초기화
     await getNews();
 };
 
